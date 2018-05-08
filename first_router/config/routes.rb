@@ -12,5 +12,10 @@ Rails.application.routes.draw do
   get '/users/new',to: 'users#new',as: 'new_user'
   get '/users/:id/edit',to: 'users#edit', as: 'edit_user'
 
+  resources :artworks,except: [:new,:edit]
+    # resources :artwork_shares, only: [:index]
+
+  resources :artwork_shares, only: [:create, :destroy]
+
 
 end
